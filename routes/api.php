@@ -19,4 +19,8 @@ Route::get('/user', function (Request $request) {
 })->middleware('jwt.auth');
 
 
+// Token
 Route::post("/authenticate", 'ApiAuthController@authenticate');
+
+// Registro
+Route::post("/register", "ApiAuthController@register");
