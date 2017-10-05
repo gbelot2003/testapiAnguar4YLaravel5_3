@@ -18,6 +18,5 @@ Route::get('/user', function (Request $request) {
     return ['name' => "Gerardo"];
 })->middleware('jwt.auth');
 
-Route::post("/authentuicate", [
-    'user' => 'ApiAuthController@authenticate'
-]);
+
+Route::post("/authenticate", 'ApiAuthController@authenticate');
