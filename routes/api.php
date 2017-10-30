@@ -14,19 +14,11 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 |
 */
 
-Route::get('/user', function () {
-
-    $token = JWTAuth::getToken();
-
-    $user = JWTAuth::toUser($token);
-
-    return $user;
-
-});
-
-
 // Token
 Route::post("/authenticate", 'ApiAuthController@authenticate');
 
 // Registro
 Route::post("/register", "ApiAuthController@register");
+
+// Mostrar info de usuarios despues de validadcion de token
+Route::get('/user', 'UserController@show');
