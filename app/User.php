@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function jokes()
+    {
+        return $this->hasMany(Joke::class, 'user_id', 'id');
+    }
 }
