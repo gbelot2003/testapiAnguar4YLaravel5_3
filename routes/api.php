@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\User;
+use Tymon\JWTAuth\Facades\JWTAuth;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,10 +14,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-   // return $request->user();
-    return ['name' => "Gerardo"];
-})->middleware('jwt.auth');
+Route::get('/user', function () {
+
+    $token = JWTAuth::getToken();
+
+    $user = JWTAuth::toUser($token);
+
+    return $user;
+
+});
 
 
 // Token
