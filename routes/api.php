@@ -21,4 +21,4 @@ Route::post("/authenticate", 'ApiAuthController@authenticate');
 Route::post("/register", "ApiAuthController@register");
 
 // Mostrar info de usuarios despues de validadcion de token
-Route::get('/user', 'UserController@show');
+Route::get('/user', 'UserController@show')->middleware('jwt.auth');
